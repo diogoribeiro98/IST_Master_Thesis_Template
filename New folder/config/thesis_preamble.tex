@@ -1,0 +1,301 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Language
+\usepackage[utf8]{inputenc} 			% Input encoding
+\usepackage[english]{babel} 			% English
+
+%Mathematics
+\usepackage{amsmath}					% American Mathematical Society Package
+\usepackage{amsfonts}					% Mathematical Fonts
+\usepackage{amssymb}					% More mathematical symbols
+\usepackage{mathtools}					% More control and better appearence of Mathematics
+
+%Figures and captions
+\usepackage{graphicx}					% More complex version of graphics for figures
+\usepackage{caption}					% More control over captions
+\usepackage{sidecap}					% Side captions (just in case)
+
+%ThE LooOks!
+\usepackage{fancyhdr}					% Fancy Headers
+\usepackage{geometry}					% Control geometry
+\usepackage{setspace}
+
+%Tables and other enviorements
+\usepackage{tabularx}					% Better tables
+\usepackage{booktabs}					% Even better tables
+\usepackage{enumitem}					% More control over enumerate enviorements
+\usepackage{arydshln}					% Use dashed lines in tables
+
+%Physics
+\usepackage{siunitx}					% SI units			
+\usepackage{physics}					% Usefull notations ( bras and kets for example)
+
+% Usefull Tools
+\usepackage{lipsum}						% Create random text
+\usepackage{comment}					% Create comments
+\usepackage{hyperref}					% Create hyperlinks
+\usepackage{xcolor} 					% Colors
+\usepackage{framed}						% Colored frames
+\usepackage{setspace}					% Control spaces
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Paper Geometry
+\geometry{
+	paper=a4paper, 	% A4 Paper
+	inner=2.5cm, 	% Inner margin
+	outer=2.5cm, 	% Outer margin
+	top=2.5cm, 		% Top margin
+	bottom=2.5cm, 	% Bottom margin
+}
+
+%Line spacing
+\renewcommand{\baselinestretch}{1.5}
+
+%Use Helvetica Font
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+
+\def\FontLn{% 16 pt normal
+	\usefont{T1}{phv}{m}{n}\fontsize{16pt}{16pt}\selectfont}
+\def\FontLb{% 16 pt bold
+	\usefont{T1}{phv}{b}{n}\fontsize{16pt}{16pt}\selectfont}
+\def\FontMn{% 14 pt normal
+	\usefont{T1}{phv}{m}{n}\fontsize{14pt}{14pt}\selectfont}
+\def\FontMb{% 14 pt bold
+	\usefont{T1}{phv}{b}{n}\fontsize{14pt}{14pt}\selectfont}
+\def\FontSn{% 12 pt normal
+	\usefont{T1}{phv}{m}{n}\fontsize{12pt}{12pt}\selectfont}
+
+%Mathematical font
+\usepackage{sansmathfonts}
+
+%Make tables align at the separator '.'
+\usepackage{dcolumn}
+\newcolumntype{d}{D{.}{.}{-1}}
+
+%URL links setup
+\colorlet{url_blue}{blue!50!black}
+
+\hypersetup{
+	pdfpagemode			= {UseOutlines}	,
+	bookmarksopen		= true 			,
+	bookmarksopenlevel	= 0				,
+	hypertexnames		= false			,
+	colorlinks			= true			, % Set to false to disable coloring links
+	citecolor			= blue			, % The color of citations
+	linkcolor			= blue			, % The color of references to document (sections, figures, etc)
+	urlcolor			=url_blue		, % The color of hyperlinks (URLs)
+	pdfstartview		={FitV}			,
+	breaklinks			=true,
+	unicode								,
+}
+
+%Setup sidecaption aligned to top of figure and caption width
+\sidecaptionvpos{figure}{t}
+\captionsetup{width=.8\textwidth}
+
+
+%Set shaded color
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COVER PAGE TOOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%new Latex variable names
+\newcommand{\coverThesis}{@undefined} 
+\newcommand{\coverSupervisors}{@undefined}
+\newcommand{\coverExaminationCommittee}{@undefined}
+\newcommand{\coverChairperson}{@undefined} 
+\newcommand{\coverSupervisor}{@undefined} 
+\newcommand{\coverMemberCommittee}{@undefined} 
+
+\addto\captionsenglish{\renewcommand{\coverThesis}{Thesis to obtain the Master of Science Degree in}}
+\addto\captionsenglish{\renewcommand{\coverSupervisors}{Supervisor}}
+\addto\captionsenglish{\renewcommand{\coverExaminationCommittee}{Examination Committee}}
+\addto\captionsenglish{\renewcommand{\coverChairperson}{Chairperson}}
+\addto\captionsenglish{\renewcommand{\coverSupervisor}{Supervisor}}
+\addto\captionsenglish{\renewcommand{\coverMemberCommittee}{Members of the Committee}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AKNOWLEDGMENT SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% new LaTeX variable name
+\newcommand{\acknowledgments}{@undefined} 
+\addto\captionsenglish{\renewcommand{\acknowledgments}{Acknowledgments}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOMENCLATURE AND GLOSSARY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{nomencl}
+\makenomenclature
+
+% Group variables according to their symbol type
+\RequirePackage{ifthen}
+
+\renewcommand{\nomgroup}[1]{%
+	\ifthenelse{	\equal{#1}{R}	}{	\item[\textbf{Roman symbols}]	}{%
+	\ifthenelse{	\equal{#1}{G}	}{	\item[\textbf{Greek symbols}]	}{%
+   	\ifthenelse{	\equal{#1}{S}	}{	\item[\textbf{Subscripts}]		}{%
+  	\ifthenelse{	\equal{#1}{T}	}{	\item[\textbf{Superscripts}]	}{%   
+  	}}}}}
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIO SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[backend=bibtex , style=chem-angew ,doi=false , url=false , isbn=false ]{biblatex}
+
+%Bibligraphy file
+\bibliography{./bib/my_ref} 
+
+
+% Costumize color of bibliography
+\newbibmacro{string+doiurl}[1]{%
+	\iffieldundef{doi}
+	{\iffieldundef{url}
+		{#1}
+		{\href{\thefield{url}}{#1}}}
+	{\href{https://doi.org/\thefield{doi}}{#1}}}
+
+
+\makeatletter
+
+\def\blx@driver#1{%
+	\ifcsdef{blx@bbx@#1}
+	{\usebibmacro{string+doiurl}{\csuse{blx@bbx@#1}}}
+	{\ifcsdef{blx@bbx@*}
+		{\blx@warning{%
+				No driver for entry type '#1'.\MessageBreak
+				Using fallback driver}%
+			\usebibmacro{string+doiurl}{\csuse{blx@bbx@*}}}
+		{\blx@error
+			{No driver found}
+			{I can't find a driver for the entry type
+				'\abx@field@entrytype'\MessageBreak
+				and there is no fallback driver either}}}}
+\makeatother
+
+
+
+
+\begin{comment}
+\usepackage[acronym,nonumberlist]{glossaries}
+\makeglossaries
+
+\usepackage{rotating}
+\usepackage{xcolor}
+\definecolor{YKblue}{rgb}{0.0, 0.18, 0.65}
+\usepackage{hyperref}
+\hypersetup{pdftitle={Terahertz plasmonic instabilities in graphene: a
+hydrodynamical description},
+            pdfauthor={Pedro A. Cosme S.},
+            pdfsubject={Terahertz plasmonic instabilities in graphene: a
+hydrodynamical description},
+            pdfkeywords={Graphene plasmonic Thz emission},
+            pdfstartview=FitV,
+            pdfdisplaydoctitle=true,
+            pdfpagemode=UseOutlines,
+            urlbordercolor	=YKblue}
+
+
+
+% 'hypcap' package
+%
+% Adjusting the anchors of captions.
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+%
+% > fixes the problem with hyperref, that links to floats points
+%   below the caption and not at the beginning of the float.
+%
+%\usepackage[figure,table]{hypcap}
+%\usepackage{url}
+%\usepackage[numbers,compress]{natbib} 
+%\usepackage{notoccite}
+%\usepackage{multirow}
+
+\usepackage{booktabs}
+
+%\usepackage{pdfpages}
+
+%\usepackage{import}
+
+% ----------------------------------------------------------------------
+% Define new commands to assure consistent treatment throughout document
+% ----------------------------------------------------------------------
+
+%\newcommand{\ud}{\mathrm{d}}                % total derivative
+%\newcommand{\degree}{\ensuremath{^\circ\,}} % degrees
+% Abbreviations
+%\newcommand{\mcol}{\multicolumn}            % table format
+%\newcommand{\eqnref}[1]{(\ref{#1})}
+%\newcommand{\class}[1]{\texttt{#1}}
+%\newcommand{\package}[1]{\texttt{#1}}
+%\newcommand{\file}[1]{\texttt{#1}}
+%\newcommand{\BibTeX}{\textsc{Bib}\TeX}
+
+% Typefaces ( example: {\bf Bold text here} )
+%
+% > pre-defined
+%   \bf % bold face
+%   \it % italic
+%   \tt % typewriter
+%
+% > newly defined
+%\newcommand{\tr}[1]{{\ensuremath{\textrm{#1}}}}   % text roman
+%\newcommand{\tb}[1]{{\ensuremath{\textbf{#1}}}}   % text bold face
+%\newcommand{\ti}[1]{{\ensuremath{\textit{#1}}}}   % text italic
+%\newcommand{\mc}[1]{{\ensuremath{\mathcal{#1}}}}  % math calygraphy
+%\newcommand{\mco}[1]{{\ensuremath{\mathcalold{#1}}}}% math old calygraphy
+%\newcommand{\mr}[1]{{\ensuremath{\mathrm{#1}}}}   % math roman
+%\newcommand{\mb}[1]{{\ensuremath{\mathbf{#1}}}}   % math bold face
+%\newcommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}} % math symbol
+%\def\bm#1{\mathchoice                             % math bold
+%  {\mbox{\boldmath$\displaystyle#1$}}%
+%  {\mbox{\boldmath$#1$}}%
+%  {\mbox{\boldmath$\scriptstyle#1$}}%
+%  {\mbox{\boldmath$\scriptscriptstyle#1$}}}
+%\newcommand{\boldcal}[1]{{\ensuremath{\boldsymbol{\mathcal{#1}}}}}% math bold calygraphy
+
+\usepackage{nicematrix}
+\usepackage{bigints}
+\usepackage{cancel}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{ textcomp }
+\usetikzlibrary{patterns,arrows,shapes,arrows,intersections,decorations,shadows,shapes.geometric}
+\usepackage{tikz-3dplot}
+\usepackage{circuitikz}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{verbatim}
+\usepackage{cases}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\usepackage[rightcaption]{sidecap}
+%\sidecaptionvpos{figure}{t}
+
+
+\newcommand{\secref}[1]{\S\ref{#1}}
+
+\graphicspath{{./Figures/}{./Sections/}}
+
+%\input{GFET.tex}
+\captionsetup{width=.8\textwidth}
+
+
+
+
+
+\end{comment}
+
