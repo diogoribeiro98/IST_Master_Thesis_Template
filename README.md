@@ -77,9 +77,11 @@ Main Folder
 The filenames are self explanatory and are commented so take a look around the files to get a better grasp of the innerworkings of the template. An advice to keep things organized is to take a look at the `thesis_preamble.tex` file where all packages and tweaks should be made. Regarding the bibliography, I highly recommend the use of JabRef to keep track of this file andto update it as you go. Finally, you should place all your images in the images folder. I usually make subfolders for specific parts of my document.
 
 ## Examples
-
-<div style="text-align:center"><img src="examples/example_image.png" /></div>
-
+  <p float="left">
+  <img src="examples/front_page_example.png" width="450" />
+  <img src="examples/chapter_example.png" width="450" />
+</p>
+  
 ## Aknowledgements
 
 I want to leave here a public thank you to Pedro Cosme for the original template upon which this one was built.
